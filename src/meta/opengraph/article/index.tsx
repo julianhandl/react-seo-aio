@@ -36,39 +36,39 @@ const MetaOpenGraphArticle: React.FC<MetaOpenGraphArticeProps> = ({
     tag
 }) => {
     const articleTags = [
-        <MetaOpenGraphType type="article" />
+        <MetaOpenGraphType type="article"  key={`meta-opengraph-article-type`} />
     ];
 
     if(publishedTime) {
-        articleTags.push(<MetaOpenGraphArticlePublishedTime content={publishedTime} />);
+        articleTags.push(<MetaOpenGraphArticlePublishedTime key={`meta-opengraph-article-published_time`} content={publishedTime} />);
     }
     if(modifiedTime) {
-        articleTags.push(<MetaOpenGraphArticleModifiedTime content={modifiedTime} />);
+        articleTags.push(<MetaOpenGraphArticleModifiedTime key={`meta-opengraph-article-modified_time`} content={modifiedTime} />);
     }
     if(expirationTime) {
-        articleTags.push(<MetaOpenGraphArticleExpirationTime content={expirationTime} />);
+        articleTags.push(<MetaOpenGraphArticleExpirationTime key={`meta-opengraph-article-expiration_time`} content={expirationTime} />);
     }
     if(author) {
         if(typeof author === "object") {
-            author.forEach(profile => {
-                articleTags.push(<MetaOpenGraphArticleAuthor content={profile} />);
+            author.forEach((profile, i) => {
+                articleTags.push(<MetaOpenGraphArticleAuthor key={`meta-opengraph-article-author-${i}`} content={profile} />);
             });
         }
         else {
-            articleTags.push(<MetaOpenGraphArticleAuthor content={author} />);
+            articleTags.push(<MetaOpenGraphArticleAuthor key={`meta-opengraph-article-author`} content={author} />);
         }
     }
     if(section) {
-        articleTags.push(<MetaOpenGraphArticleSection content={section} />);
+        articleTags.push(<MetaOpenGraphArticleSection key={`meta-opengraph-article-section`} content={section} />);
     }
     if(tag) {
         if(typeof tag === "object") {
-            tag.forEach(word => {
-                articleTags.push(<MetaOpenGraphArticleTag content={word} />);
+            tag.forEach((word, i) => {
+                articleTags.push(<MetaOpenGraphArticleTag key={`meta-opengraph-article-tag-${i}`} content={word} />);
             });
         }
         else {
-            articleTags.push(<MetaOpenGraphArticleTag content={tag} />);
+            articleTags.push(<MetaOpenGraphArticleTag key={`meta-opengraph-article-tag`} content={tag} />);
         }
     }
 
