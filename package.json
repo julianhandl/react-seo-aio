@@ -7,6 +7,7 @@
   "scripts": {
     "prepublish": "tsc --project tsconfig.json",
     "tsc": "tsc --project tsconfig.json",
+    "test": "react-scripts test",
     "build": "react-scripts build"
   },
   "eslintConfig": {
