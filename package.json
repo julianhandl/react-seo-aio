@@ -2,11 +2,12 @@
   "name": "react-seo-aio",
   "version": "1.0.0",
   "description": "The all in one solution for react and stuff like meta tags.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test"
+    "prepublish": "tsc --project tsconfig.json",
+    "tsc": "tsc --project tsconfig.json",
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,20 +31,6 @@
     "@types/react-dom": "^16.9.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-helmet": "^6.1.0",
-    "react-scripts": "3.4.3",
     "typescript": "~3.7.2"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   }
 }

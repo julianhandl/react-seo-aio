@@ -1,6 +1,14 @@
 # React SEO All-In-One
 The all in one solution for seo-stuff like meta tags
 
+## Basics
+Currently supported:
+
+- title
+- description
+- canonical
+- robots
+
 ## Open Graph
 Currently supported open graph data is:
 
