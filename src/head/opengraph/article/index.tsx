@@ -1,5 +1,4 @@
 import React from "react";
-import HeadOpenGraphType from "../type";
 import HeadOpenGraphArticleAuthor from "./author";
 import HeadOpenGraphArticleExpirationTime from "./expirationTime";
 import HeadOpenGraphArticleModifiedTime from "./modifiedTime";

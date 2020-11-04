@@ -38,7 +38,7 @@ interface HeadOpenGraphProps {
  * @param siteName - If your object is part of a larger web site, the name which should be displayed for the overall site. e.g., "IMDb".
  * @returns All the recommended open graph meta tags
  */
-const HeadGroupBasic: React.FC<HeadOpenGraphProps> = ({
+const HeadOpenGraph: React.FC<HeadOpenGraphProps> = ({
     title,
     description,
     type,
@@ -107,4 +107,4 @@ const HeadGroupBasic: React.FC<HeadOpenGraphProps> = ({
     return <React.Fragment>{openGraphTags}</React.Fragment>
 }
 
-export default HeadGroupBasic;
+export default HeadOpenGraph;

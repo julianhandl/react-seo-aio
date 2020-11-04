@@ -1,15 +1,15 @@
 import React from "react";
-import { HeadTitle } from "..";
-import HeadCanonical from "../head/canonical";
-import HeadDescription from "../head/description";
-import HeadOpenGraphDescription from "../head/opengraph/description";
-import HeadOpenGraphLocale from "../head/opengraph/locale";
-import HeadOpenGraphLocaleAlternative from "../head/opengraph/localeAlternative";
-import HeadOpenGraphSiteName from "../head/opengraph/siteName";
-import HeadOpenGraphTitle from "../head/opengraph/title";
-import HeadOpenGraphType, { HeadOpenGraphTypes } from "../head/opengraph/type";
-import HeadOpenGraphUrl from "../head/opengraph/url";
-import HeadRobots from "../head/robots";
+import { HeadTitle } from "../..";
+import HeadCanonical from "../canonical";
+import HeadDescription from "../description";
+import HeadOpenGraphDescription from "../opengraph/description";
+import HeadOpenGraphLocale from "../opengraph/locale";
+import HeadOpenGraphLocaleAlternative from "../opengraph/localeAlternative";
+import HeadOpenGraphSiteName from "../opengraph/siteName";
+import HeadOpenGraphTitle from "../opengraph/title";
+import HeadOpenGraphType, { HeadOpenGraphTypes } from "../opengraph/type";
+import HeadOpenGraphUrl from "../opengraph/url";
+import HeadRobots from "../robots";
 
 interface HeadGroupBasicProps {
     title: string;
