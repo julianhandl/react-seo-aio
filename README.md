@@ -123,7 +123,19 @@ const Page = () => {
 */
 ```
 
+## Usage
+This library renders basic tags like meta tag. It is purposly not bound to any external libraries like ```react-helmet```. Different methos like basic react or next.js use different methods to render content inside the html head. Use the provided method.
+
+### Basics
+The easiest way to use this library is to use the predefined tag groups in an additive way.
+
+Allways start with the ```<HeadGroupBasic>``` and add stuff from there.
+
+If your current page is also represented by media like an image or video you can add the ```<HeadGroupMedia>```.
+
 ### (Advanced) with single tags
+You can also mix groups with individual functions or event use them exclusively.
+
 ```jsx
 import React from "react";
 import {Helmet} from "react-helmet";
@@ -148,22 +160,21 @@ const Page = () => {
 }
 ```
 
-## Supported features
+## References
 
-### Basics
-|Title|Tag|Support|
-|---|---|---|
-|Title|```title```|```true```|
-|Description|```meta```|```true```|
-|Canonical|```link```|```true```|
-|Robots|```meta```|```true```|
+### Groups
 
-
-### Meta Tags
-|Title|name|Support|
-|---|---|---|
-|OG title|```og:title```|```true```|
-|OG type|```og:type```|```true```|
-|OG url|```og:url```|```true```|
-|OG image|```og:image```|```true```|
-|OG article|```article:###```|```true```|
+#### ```<HeadGroupBasic>```
+|Tag|Prop|Type|Required|Default|
+|--|--|--|--|--|
+|```title```|```title```|```string```|```true```||
+|```meta-og:title```|```title```|```string```|```true```||
+|```meta-description```|```description```|```string```|```true```||
+|```meta-og:description```|```description```|```string```|```true```||
+|```link-canonical```|```url```|```string```|```true```||
+|```meta-og:url```|```url```|```string```|```true```||
+|```meta-og:local```|```locale```|```string```|```true```||
+|```meta-robots```|```robots```|```{index: boolean, follow: boolean}```|```false```|```index,follow```|
+|```meta-og:type```|```type```|```enum```|```false```||
+|```meta-og:locale:alternative```|```localeAlternative```|```string | string[]```|```false```||
+|```meta-og:site_name```|```siteName```|```string```|```false```||
