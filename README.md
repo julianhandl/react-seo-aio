@@ -1,6 +1,10 @@
 # React SEO All-In-One
 This library provides stuff to seo-optimize your website built with react. You can either use single components for an easy usage of meta tags and other stuff or use predefined groups to get all the different tags out of your mind.
 
+- [Usage](#usage)
+  - [Basic](#usage-basic)
+  - [Advanced](#usage-advanced)
+
 ## Quickstart
 ```
 npm install react-seo-aio
@@ -9,7 +13,7 @@ npm install react-seo-aio
 ```jsx
 import React from "react";
 import {Helmet} from "react-helmet";
-import {HeadGroupBasic, HeadGroupMedia} from "react-seo-aio";
+import {HeadGroupBasic} from "react-seo-aio";
 
 const Page = () => {
   return (
@@ -41,7 +45,7 @@ const Page = () => {
 ## Typescript
 This library is written in Typescript and comes with all needed typings. Of course it also supports vanilla javascript.
 
-## Usage
+## <a name="usage"></a>Usage
 The easiest way to use this library is to use the predefined tag groups in an additive way.
 - ```<HeadGroupBasic>```
 - ```<HeadGroupMedia>```
@@ -75,7 +79,7 @@ The last part of the component name can either be an actual tag name like ```Tit
 
 In case of a topic group it can be a word like ```Basic``` which referes to the ```HeadGroupBasic``` component which will render all the must have tags inside the head. Another example would be ```Media```.
 
-### Basic
+### <a name="usage-basic"></a>Basic
 The easiest way to use this library is to use the predefined tag groups in an additive way.
 
 Allways start with the ```<HeadGroupBasic>``` and add stuff from there.
@@ -135,7 +139,7 @@ const Page = () => {
 */
 ```
 
-### (Advanced) with single tags
+### <a name="usage-advanced"></a>(Advanced) with single tags
 You can also mix groups with individual functions or event use them exclusively.
 
 ```jsx
