@@ -19,7 +19,8 @@
     "isolatedModules": true,
     "jsx": "react",
     "outDir": "dist",
-    "noEmit": true
+    "noEmit": false,
+    "noFallthroughCasesInSwitch": true
   },
   "include": [
     "src/index.tsx"

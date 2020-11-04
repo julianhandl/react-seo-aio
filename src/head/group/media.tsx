@@ -17,15 +17,17 @@ interface HeadGroupMediaProps {
  * @param audio - An audio URL which should represent your object within the graph.
  * @returns All the recommended open graph meta tags
  */
-const HeadGroupMedia: React.FC<HeadGroupMediaProps> = ({
-    image,
-    video,
-    audio
-}) => {
+const HeadGroupMedia = (props: HeadGroupMediaProps) => {
+    const {
+        image,
+        video,
+        audio
+    } = props;
+
     const headTags = [];
 
-    if(image) {
-        if(typeof image === "object") {
+    if (image) {
+        if (typeof image === "object") {
             image.forEach((img, i) => {
                 headTags.push(<HeadOpenGraphImage content={img} key={`head-opengraph-image${i}`} />);
             })
@@ -35,15 +37,15 @@ const HeadGroupMedia: React.FC<HeadGroupMediaProps> = ({
         }
     }
 
-    if(video) {
+    if (video) {
         headTags.push(<HeadOpenGraphVideo content={video} key={`head-opengraph-video`} />);
     }
 
-    if(audio) {
+    if (audio) {
         headTags.push(<HeadOpenGraphAudio content={audio} key={`head-opengraph-audio`} />);
     }
 
-    return <React.Fragment>{headTags}</React.Fragment>
+    return headTags;
 }
 
 export default HeadGroupMedia;

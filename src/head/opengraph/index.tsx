@@ -38,18 +38,20 @@ interface HeadOpenGraphProps {
  * @param siteName - If your object is part of a larger web site, the name which should be displayed for the overall site. e.g., "IMDb".
  * @returns All the recommended open graph meta tags
  */
-const HeadOpenGraph: React.FC<HeadOpenGraphProps> = ({
-    title,
-    description,
-    type,
-    image,
-    video,
-    audio,
-    url,
-    locale,
-    localeAlternative,
-    siteName
-}) => {
+const HeadOpenGraph = (props: HeadOpenGraphProps) => {
+    const {
+        title,
+        description,
+        type,
+        image,
+        video,
+        audio,
+        url,
+        locale,
+        localeAlternative,
+        siteName
+    } = props;
+
     const openGraphTags = [
         <HeadOpenGraphTitle content={title} key={`head-opengraph-title`} />
     ];
@@ -104,7 +106,7 @@ const HeadOpenGraph: React.FC<HeadOpenGraphProps> = ({
         openGraphTags.push(<HeadOpenGraphSiteName content={siteName} key={`head-opengraph-site-name`} />)
     }
 
-    return <React.Fragment>{openGraphTags}</React.Fragment>
+    return openGraphTags;
 }
 
 export default HeadOpenGraph;

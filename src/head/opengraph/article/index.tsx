@@ -26,14 +26,16 @@ export interface HeadOpenGraphArticeProps {
  * @param tag - Tag words associated with this article.
  * @returns All og:type=article meta tags for this document
  */
-const HeadOpenGraphArticle: React.FC<HeadOpenGraphArticeProps> = ({
-    publishedTime,
-    modifiedTime,
-    expirationTime,
-    author,
-    section,
-    tag
-}) => {
+const HeadOpenGraphArticle = (props: HeadOpenGraphArticeProps) => {
+    const {
+        publishedTime,
+        modifiedTime,
+        expirationTime,
+        author,
+        section,
+        tag
+    } = props;
+
     const articleTags = [];
 
     if(publishedTime) {
@@ -69,7 +71,7 @@ const HeadOpenGraphArticle: React.FC<HeadOpenGraphArticeProps> = ({
         }
     }
 
-    return <React.Fragment>{articleTags}</React.Fragment>;
+    return articleTags;
 }
 
 export default HeadOpenGraphArticle;

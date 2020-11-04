@@ -17,6 +17,7 @@ import HeadOpenGraphArticleModifiedTime from "./head/opengraph/article/modifiedT
 import HeadOpenGraphArticlePublishedTime from "./head/opengraph/article/publishedTime";
 import HeadOpenGraphArticleSection from "./head/opengraph/article/section";
 import HeadOpenGraphArticleTag from "./head/opengraph/article/tag";
+import React from "react";
 
 export {
   HeadGroupBasic,
