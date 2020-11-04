@@ -37,17 +37,19 @@ interface HeadGroupBasicProps {
  * @param siteName - If your object is part of a larger web site, the name which should be displayed for the overall site. e.g., "IMDb".
  * @returns All the recommended open graph meta tags
  */
-const HeadGroupBasic: React.FC<HeadGroupBasicProps> = ({
-    title,
-    description,
-    type,
-    url,
-    locale,
-    localeAlternative,
-    siteName,
-    robots
-}) => {
-    const headTags = [
+const HeadGroupBasic = (props: HeadGroupBasicProps) => {
+    const {
+        title,
+        description,
+        type,
+        url,
+        locale,
+        localeAlternative,
+        siteName,
+        robots
+    } = props;
+
+    const headTags: JSX.Element[] = [
         <HeadTitle content={title} key={`head-title`} />,
         <HeadOpenGraphTitle content={title} key={`head-opengraph-title`} />,
         <HeadDescription content={description} key={`head-description`} />,
@@ -57,7 +59,7 @@ const HeadGroupBasic: React.FC<HeadGroupBasicProps> = ({
         <HeadOpenGraphLocale content={locale} key={`head-opengraph-locale`} />
     ];
 
-    if(type) {
+    if (type) {
         headTags.push(<HeadOpenGraphType type={type} key={`head-opengraph-type`} />);
     }
 
@@ -76,14 +78,14 @@ const HeadGroupBasic: React.FC<HeadGroupBasicProps> = ({
         headTags.push(<HeadOpenGraphSiteName content={siteName} key={`head-opengraph-site-name`} />)
     }
 
-    if(robots) {
+    if (robots) {
         headTags.push(<HeadRobots index={robots.index} follow={robots.follow} key={`head-robots`} />);
     }
     else {
         headTags.push(<HeadRobots index={true} follow={true} key={`head-robots`} />);
     }
 
-    return <React.Fragment>{headTags}</React.Fragment>
+    return headTags;
 }
 
 export default HeadGroupBasic;

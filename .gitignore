@@ -105,3 +105,6 @@ dist
 
 # VSCode
 .vscode
+
+# Project specific
+test-app

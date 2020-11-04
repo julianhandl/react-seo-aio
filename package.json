@@ -1,6 +1,6 @@
 {
   "name": "react-seo-aio",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "The all in one solution for react and stuff like meta tags.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
