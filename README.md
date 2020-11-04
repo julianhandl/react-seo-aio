@@ -42,6 +42,14 @@ const Page = () => {
 This library is written in Typescript and comes with all needed typings. Of course it also supports vanilla javascript.
 
 ## Usage
+The easiest way to use this library is to use the predefined tag groups in an additive way.
+- ```<HeadGroupBasic>```
+- ```<HeadGroupMedia>```
+- ```<HeadOpenGraphArticle>```
+
+This library renders basic tags like meta tag. It is purposly not bound to any external libraries like ```react-helmet```. Different methods like basic react or next.js use different methods to render content inside the html head. Use the provided method.
+
+
 ### Component naming convention
 The naming convention for all components of this library follows this rule:
 
@@ -68,7 +76,11 @@ The last part of the component name can either be an actual tag name like ```Tit
 In case of a topic group it can be a word like ```Basic``` which referes to the ```HeadGroupBasic``` component which will render all the must have tags inside the head. Another example would be ```Media```.
 
 ### Basic
-This is an example that shows how to create all meta info for a blog article.
+The easiest way to use this library is to use the predefined tag groups in an additive way.
+
+Allways start with the ```<HeadGroupBasic>``` and add stuff from there.
+
+If your current page is also represented by media like an image or video you can add the ```<HeadGroupMedia>```.
 
 
 ```jsx
@@ -123,16 +135,6 @@ const Page = () => {
 */
 ```
 
-## Usage
-This library renders basic tags like meta tag. It is purposly not bound to any external libraries like ```react-helmet```. Different methos like basic react or next.js use different methods to render content inside the html head. Use the provided method.
-
-### Basics
-The easiest way to use this library is to use the predefined tag groups in an additive way.
-
-Allways start with the ```<HeadGroupBasic>``` and add stuff from there.
-
-If your current page is also represented by media like an image or video you can add the ```<HeadGroupMedia>```.
-
 ### (Advanced) with single tags
 You can also mix groups with individual functions or event use them exclusively.
 
@@ -159,22 +161,3 @@ const Page = () => {
   );
 }
 ```
-
-## References
-
-### Groups
-
-#### ```<HeadGroupBasic>```
-|Tag|Prop|Type|Required|Default|
-|--|--|--|--|--|
-|```title```|```title```|```string```|```true```||
-|```meta-og:title```|```title```|```string```|```true```||
-|```meta-description```|```description```|```string```|```true```||
-|```meta-og:description```|```description```|```string```|```true```||
-|```link-canonical```|```url```|```string```|```true```||
-|```meta-og:url```|```url```|```string```|```true```||
-|```meta-og:local```|```locale```|```string```|```true```||
-|```meta-robots```|```robots```|```{index: boolean, follow: boolean}```|```false```|```index,follow```|
-|```meta-og:type```|```type```|```enum```|```false```||
-|```meta-og:locale:alternative```|```localeAlternative```|```string | string[]```|```false```||
-|```meta-og:site_name```|```siteName```|```string```|```false```||
