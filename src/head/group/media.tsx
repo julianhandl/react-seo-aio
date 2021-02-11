@@ -1,9 +1,9 @@
 import React from "react";
-import HeadOpenGraphAudio from "../opengraph/audio";
-import HeadOpenGraphImage from "../opengraph/image";
-import HeadOpenGraphVideo from "../opengraph/video";
+import generateOpenGraphAudio from "../opengraph/audio";
+import generateOpenGraphImage from "../opengraph/image";
+import generateOpenGraphVideo from "../opengraph/video";
 
-interface HeadGroupMediaProps {
+interface GroupMediaProps {
     image?: string | string[];
     video?: string;
     audio?: string;
@@ -17,7 +17,7 @@ interface HeadGroupMediaProps {
  * @param audio - An audio URL which should represent your object within the graph.
  * @returns All the recommended open graph meta tags
  */
-const HeadGroupMedia = (props: HeadGroupMediaProps) => {
+function generateGroupMedia(props: GroupMediaProps) {
     const {
         image,
         video,
@@ -29,23 +29,23 @@ const HeadGroupMedia = (props: HeadGroupMediaProps) => {
     if (image) {
         if (typeof image === "object") {
             image.forEach((img, i) => {
-                headTags.push(<HeadOpenGraphImage content={img} key={`head-opengraph-image${i}`} />);
+                headTags.push(generateOpenGraphImage(img));
             })
         }
         else {
-            headTags.push(<HeadOpenGraphImage content={image} key={`head-opengraph-image`} />);
+            headTags.push(generateOpenGraphImage(image));
         }
     }
 
     if (video) {
-        headTags.push(<HeadOpenGraphVideo content={video} key={`head-opengraph-video`} />);
+        headTags.push(generateOpenGraphVideo(video));
     }
 
     if (audio) {
-        headTags.push(<HeadOpenGraphAudio content={audio} key={`head-opengraph-audio`} />);
+        headTags.push(generateOpenGraphAudio(audio));
     }
 
     return headTags;
 }
 
-export default HeadGroupMedia;
+export default generateGroupMedia;

@@ -1,41 +1,41 @@
-import HeadGroupBasic from "./head/group/basic";
-import HeadGroupMedia from "./head/group/media";
+import generateGroupBasic from "./head/group/basic";
+import generateGroupMedia from "./head/group/media";
 
-import HeadCanonical from "./head/canonical";
-import HeadDescription from "./head/description";
-import HeadRobots from "./head/robots";
-import HeadTitle from "./head/title";
-import HeadOpenGraph from "./head/opengraph";
-import HeadOpenGraphImage from "./head/opengraph/image";
-import HeadOpenGraphTitle from "./head/opengraph/title";
-import HeadOpenGraphType from "./head/opengraph/type";
-import HeadOpenGraphUrl from "./head/opengraph/url";
-import HeadOpenGraphArticle from "./head/opengraph/article";
-import HeadOpenGraphArticleAuthor from "./head/opengraph/article/author";
-import HeadOpenGraphArticleExpirationTime from "./head/opengraph/article/expirationTime";
-import HeadOpenGraphArticleModifiedTime from "./head/opengraph/article/modifiedTime";
-import HeadOpenGraphArticlePublishedTime from "./head/opengraph/article/publishedTime";
-import HeadOpenGraphArticleSection from "./head/opengraph/article/section";
-import HeadOpenGraphArticleTag from "./head/opengraph/article/tag";
+import generateCanonical from "./head/canonical";
+import generateDescription from "./head/description";
+import generateRobots from "./head/robots";
+import generateTitle from "./head/title";
+import generateOpenGraph from "./head/opengraph";
+import generateOpenGraphImage from "./head/opengraph/image";
+import generateOpenGraphTitle from "./head/opengraph/title";
+import generateOpenGraphType from "./head/opengraph/type";
+import generateOpenGraphUrl from "./head/opengraph/url";
+import generateOpenGraphArticle from "./head/opengraph/article";
+import generateOpenGraphArticleAuthor from "./head/opengraph/article/author";
+import generateOpenGraphArticleExpirationTime from "./head/opengraph/article/expirationTime";
+import generateOpenGraphArticleModifiedTime from "./head/opengraph/article/modifiedTime";
+import generateOpenGraphArticlePublishedTime from "./head/opengraph/article/publishedTime";
+import generateOpenGraphArticleSection from "./head/opengraph/article/section";
+import generateOpenGraphArticleTag from "./head/opengraph/article/tag";
 import React from "react";
 
 export {
-  HeadGroupBasic,
-  HeadGroupMedia,
-  HeadTitle,
-  HeadDescription,
-  HeadCanonical,
-  HeadRobots,
-  HeadOpenGraph,
-  HeadOpenGraphType,
-  HeadOpenGraphTitle,
-  HeadOpenGraphImage,
-  HeadOpenGraphUrl,
-  HeadOpenGraphArticle,
-  HeadOpenGraphArticleAuthor,
-  HeadOpenGraphArticleExpirationTime,
-  HeadOpenGraphArticleModifiedTime,
-  HeadOpenGraphArticlePublishedTime,
-  HeadOpenGraphArticleSection,
-  HeadOpenGraphArticleTag
+  generateGroupBasic,
+  generateGroupMedia,
+  generateTitle,
+  generateDescription,
+  generateCanonical,
+  generateRobots,
+  generateOpenGraph,
+  generateOpenGraphType,
+  generateOpenGraphTitle,
+  generateOpenGraphImage,
+  generateOpenGraphUrl,
+  generateOpenGraphArticle,
+  generateOpenGraphArticleAuthor,
+  generateOpenGraphArticleExpirationTime,
+  generateOpenGraphArticleModifiedTime,
+  generateOpenGraphArticlePublishedTime,
+  generateOpenGraphArticleSection,
+  generateOpenGraphArticleTag
 }

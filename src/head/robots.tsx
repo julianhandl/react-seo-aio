@@ -1,6 +1,6 @@
 import React from "react";
 
-interface RobotsProps {
+interface RobotsData {
     index: boolean;
     follow: boolean;
 }
@@ -8,12 +8,17 @@ interface RobotsProps {
 /**
  * Returns the robots meta-tag
  * 
- * @param index - Should the search engine crawler index the whole page?
- * @param follow - Should the search engine crawler follow all links on this page?
+ * @param data - Should the page be indexed and followed?
  * @returns The robots meta-tag
  */
-const HeadRobots: React.FC<RobotsProps> = ({index, follow}) => {
-    return <meta name="robots" content={`${!index ? "no" : ""}index,${!follow ? "no" : ""}follow`} />
+function generateRobots(data?: RobotsData) {
+    if (data) {
+        const { index, follow } = data;
+        return <meta name="robots" content={`${!index ? "no" : ""}index,${!follow ? "no" : ""}follow`} />
+    }
+    else {
+        return <meta name="robots" content="index,follow" />
+    }
 }
 
-export default HeadRobots;
+export default generateRobots;

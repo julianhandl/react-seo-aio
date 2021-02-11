@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HeadOpenGraphUrl from "./url";
+import generateOpenGraphUrl from "./url";
 
 test('it should render a og:url meta-tag', () => {
     let container = document.createElement("div");
-    ReactDOM.render(<HeadOpenGraphUrl content="testurl" />, container);
+    ReactDOM.render(generateOpenGraphUrl("testurl"), container);
 
     const metaTag = container.getElementsByTagName("meta");
     expect(metaTag).toBeDefined();

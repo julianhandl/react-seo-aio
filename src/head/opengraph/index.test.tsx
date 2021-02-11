@@ -1,21 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HeadOpenGraph from ".";
+import generateOpenGraph from ".";
 
 test('it should render all reccomended opengraph meta-tags', () => {
     let container = document.createElement("div");
-    ReactDOM.render(<HeadOpenGraph
-        title="Lorem Ipsum"
-        description="Lorem Ipsum Dolor"
-        type="website"
-        image="image"
-        video="video"
-        audio="audio"
-        url="url"
-        locale="de_AT"
-        localeAlternative="en_US"
-        siteName="City"
-    />, container);
+    ReactDOM.render(generateOpenGraph({
+        title: "Lorem Ipsum",
+        description: "Lorem Ipsum Dolor",
+        type: "website",
+        image: "image",
+        video: "video",
+        audio: "audio",
+        url: "url",
+        locale: "de_AT",
+        localeAlternative: "en_US",
+        siteName: "City"
+    }), container);
 
     const title = container.querySelector('meta[property="og:title"]');
     expect(title).toBeDefined();
@@ -61,18 +61,18 @@ test('it should render all reccomended opengraph meta-tags', () => {
 
 test('it should render multiple language alternatives and images', () => {
     let container = document.createElement("div");
-    ReactDOM.render(<HeadOpenGraph
-        title="Lorem Ipsum"
-        description="Lorem Ipsum Dolor"
-        type="website"
-        image={["image", "image2"]}
-        video="video"
-        audio="audio"
-        url="url"
-        locale="de_AT"
-        localeAlternative={["en_US", "de_DE"]}
-        siteName="City"
-    />, container);
+    ReactDOM.render(generateOpenGraph({
+        title: "Lorem Ipsum",
+        description: "Lorem Ipsum Dolor",
+        type: "website",
+        image: ["image", "image2"],
+        video: "video",
+        audio: "audio",
+        url: "url",
+        locale: "de_AT",
+        localeAlternative: ["en_US", "de_DE"],
+        siteName: "City"
+    }), container);
 
     const title = container.querySelector('meta[property="og:title"]');
     expect(title).toBeDefined();

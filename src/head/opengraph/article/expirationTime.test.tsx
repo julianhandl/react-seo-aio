@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HeadOpenGraphArticleExpirationTime from "./expirationTime";
+import generateOpenGraphArticleExpirationTime from "./expirationTime";
 
 test('it should render a article:expiration_time meta-tag', () => {
     const date = new Date("2020-10-27T10:00:00Z");
 
     let container = document.createElement("div");
-    ReactDOM.render(<HeadOpenGraphArticleExpirationTime content={date} />, container);
+    ReactDOM.render(generateOpenGraphArticleExpirationTime(date), container);
 
     const metaTag = container.getElementsByTagName("meta");
     expect(metaTag).toBeDefined();

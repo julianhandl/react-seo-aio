@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HeadOpenGraphVideo from "./video";
+import generateOpenGraphVideo from "./video";
 
 test('it should render a og:image meta-tag', () => {
     let container = document.createElement("div");
-    ReactDOM.render(<HeadOpenGraphVideo content="http://video" />, container);
+    ReactDOM.render(generateOpenGraphVideo("http://video"), container);
 
     const metaTag = container.getElementsByTagName("meta");
     expect(metaTag).toBeDefined();

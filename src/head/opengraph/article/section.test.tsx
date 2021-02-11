@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HeadOpenGraphArticleSection from "./section";
+import generateOpenGraphArticleSection from "./section";
 
 test('it should render a article:section meta-tag', () => {
     let container = document.createElement("div");
-    ReactDOM.render(<HeadOpenGraphArticleSection content="Technology" />, container);
+    ReactDOM.render(generateOpenGraphArticleSection("Technology"), container);
 
     const metaTag = container.getElementsByTagName("meta");
     expect(metaTag).toBeDefined();

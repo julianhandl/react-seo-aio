@@ -1,6 +1,6 @@
 import React from "react";
 
-export type HeadOpenGraphTypes =
+export type OpenGraphTypes =
     "article" |
     "book" |
     "profile" |
@@ -14,18 +14,14 @@ export type HeadOpenGraphTypes =
     "video.tv_show" |
     "video.other";
 
-interface HeadOpenGraphTypeProps {
-    type: HeadOpenGraphTypes;
-}
-
 /**
  * Returns a basic version of the og:type meta tag
  * 
  * @param type - The type of your object, e.g., "video.movie". Depending on the type you specify, other properties may also be required.
  * @returns The og:type meta tag
  */
-const HeadOpenGraphType: React.FC<HeadOpenGraphTypeProps> = ({type}) => {
+function generateOpenGraphType(type: OpenGraphTypes) {
     return <meta property="og:type" content={type} />
 }
 
-export default HeadOpenGraphType;
+export default generateOpenGraphType;

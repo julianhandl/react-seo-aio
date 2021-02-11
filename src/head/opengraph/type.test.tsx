@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HeadOpenGraphType from "./type";
+import generateOpenGraphType from "./type";
 
 test('it should render a og:type meta-tag', () => {
     let container = document.createElement("div");
-    ReactDOM.render(<HeadOpenGraphType type="article" />, container);
+    ReactDOM.render(generateOpenGraphType("article"), container);
 
     const metaTag = container.getElementsByTagName("meta");
     expect(metaTag).toBeDefined();

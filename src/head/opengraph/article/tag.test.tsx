@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HeadOpenGraphArticleTag from "./tag";
+import generateOpenGraphArticleTag from "./tag";
 
 test('it should render a article:tag meta-tag', () => {
     let container = document.createElement("div");
-    ReactDOM.render(<HeadOpenGraphArticleTag content="Technology" />, container);
+    ReactDOM.render(generateOpenGraphArticleTag("Technology"), container);
 
     const metaTag = container.getElementsByTagName("meta");
     expect(metaTag).toBeDefined();

@@ -1,22 +1,22 @@
 import React from "react";
-import { HeadTitle } from "../..";
-import HeadCanonical from "../canonical";
-import HeadDescription from "../description";
-import HeadOpenGraphDescription from "../opengraph/description";
-import HeadOpenGraphLocale from "../opengraph/locale";
-import HeadOpenGraphLocaleAlternative from "../opengraph/localeAlternative";
-import HeadOpenGraphSiteName from "../opengraph/siteName";
-import HeadOpenGraphTitle from "../opengraph/title";
-import HeadOpenGraphType, { HeadOpenGraphTypes } from "../opengraph/type";
-import HeadOpenGraphUrl from "../opengraph/url";
-import HeadRobots from "../robots";
+import generateTitle from "../title";
+import generateCanonical from "../canonical";
+import generateDescription from "../description";
+import generateOpenGraphDescription from "../opengraph/description";
+import generateOpenGraphLocale from "../opengraph/locale";
+import generateOpenGraphLocaleAlternative from "../opengraph/localeAlternative";
+import generateOpenGraphSiteName from "../opengraph/siteName";
+import generateOpenGraphTitle from "../opengraph/title";
+import generateOpenGraphType, { OpenGraphTypes } from "../opengraph/type";
+import generateOpenGraphUrl from "../opengraph/url";
+import generateRobots from "../robots";
 
-interface HeadGroupBasicProps {
+interface GroupBasicProps {
     title: string;
     description: string;
     url: string;
     locale: string;
-    type?: HeadOpenGraphTypes;
+    type?: OpenGraphTypes;
     localeAlternative?: string | string[];
     siteName?: string;
     robots?: {
@@ -37,7 +37,7 @@ interface HeadGroupBasicProps {
  * @param siteName - If your object is part of a larger web site, the name which should be displayed for the overall site. e.g., "IMDb".
  * @returns All the recommended open graph meta tags
  */
-const HeadGroupBasic = (props: HeadGroupBasicProps) => {
+function generateGroupBasic(props: GroupBasicProps) {
     const {
         title,
         description,
@@ -49,43 +49,43 @@ const HeadGroupBasic = (props: HeadGroupBasicProps) => {
         robots
     } = props;
 
-    const headTags: JSX.Element[] = [
-        <HeadTitle content={title} key={`head-title`} />,
-        <HeadOpenGraphTitle content={title} key={`head-opengraph-title`} />,
-        <HeadDescription content={description} key={`head-description`} />,
-        <HeadOpenGraphDescription content={description} key={`head-opengraph-description`} />,
-        <HeadCanonical href={url} key={`head-canonical`} />,
-        <HeadOpenGraphUrl content={url} key={`head-opengraph-url`} />,
-        <HeadOpenGraphLocale content={locale} key={`head-opengraph-locale`} />
+    const headTags = [
+        generateTitle(title),
+        generateOpenGraphTitle(title),
+        generateDescription(description),
+        generateOpenGraphDescription(description),
+        generateCanonical(url),
+        generateOpenGraphUrl(url),
+        generateOpenGraphLocale(locale)
     ];
 
     if (type) {
-        headTags.push(<HeadOpenGraphType type={type} key={`head-opengraph-type`} />);
+        headTags.push(generateOpenGraphType(type));
     }
 
     if (localeAlternative) {
         if (typeof localeAlternative === "object") {
             localeAlternative.forEach((loc, i) => {
-                headTags.push(<HeadOpenGraphLocaleAlternative content={loc} key={`head-opengraph-locale-alternative-${i}`} />);
+                headTags.push(generateOpenGraphLocaleAlternative(loc));
             });
         }
         else {
-            headTags.push(<HeadOpenGraphLocaleAlternative content={localeAlternative} key={`head-opengraph-locale-alternative`} />);
+            headTags.push(generateOpenGraphLocaleAlternative(localeAlternative));
         }
     }
 
     if (siteName) {
-        headTags.push(<HeadOpenGraphSiteName content={siteName} key={`head-opengraph-site-name`} />)
+        headTags.push(generateOpenGraphSiteName(siteName));
     }
 
     if (robots) {
-        headTags.push(<HeadRobots index={robots.index} follow={robots.follow} key={`head-robots`} />);
+        headTags.push(generateRobots(robots));
     }
     else {
-        headTags.push(<HeadRobots index={true} follow={true} key={`head-robots`} />);
+        headTags.push(generateRobots());
     }
 
     return headTags;
 }
 
-export default HeadGroupBasic;
+export default generateGroupBasic;

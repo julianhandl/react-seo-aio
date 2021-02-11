@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HeadGroupMedia from "./media";
+import generateGroupMedia from "./media";
 
 test('it should render the media head group', () => {
     let container = document.createElement("div");
-    ReactDOM.render(<HeadGroupMedia
-        image="http://image"
-        video="http://video"
-        audio="http://audio"
-    />, container);
+    ReactDOM.render(generateGroupMedia({
+        image: "http://image",
+        video: "http://video",
+        audio: "http://audio"
+    }), container);
 
     const ogimage = container.querySelector('meta[property="og:image"]');
     expect(ogimage).toBeDefined();
@@ -25,9 +25,9 @@ test('it should render the media head group', () => {
 
 test('it should render the media head group with an image array', () => {
     let container = document.createElement("div");
-    ReactDOM.render(<HeadGroupMedia
-        image={["http://image1", "http://image2"]}
-    />, container);
+    ReactDOM.render(generateGroupMedia({
+        image: ["http://image1", "http://image2"]
+    }), container);
 
     const ogimages = container.querySelectorAll('meta[property="og:image"]');
     expect(ogimages.length).toBe(2);

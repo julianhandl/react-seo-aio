@@ -1,10 +1,10 @@
 import React from "react";
-import HeadOpenGraphArticleAuthor from "./author";
-import HeadOpenGraphArticleExpirationTime from "./expirationTime";
-import HeadOpenGraphArticleModifiedTime from "./modifiedTime";
-import HeadOpenGraphArticlePublishedTime from "./publishedTime";
-import HeadOpenGraphArticleSection from "./section";
-import HeadOpenGraphArticleTag from "./tag";
+import generateOpenGraphArticleAuthor from "./author";
+import generateOpenGraphArticleExpirationTime from "./expirationTime";
+import generateOpenGraphArticleModifiedTime from "./modifiedTime";
+import generateOpenGraphArticlePublishedTime from "./publishedTime";
+import generateOpenGraphArticleSection from "./section";
+import generateOpenGraphArticleTag from "./tag";
 
 export interface HeadOpenGraphArticeProps {
     publishedTime?: Date;
@@ -26,7 +26,7 @@ export interface HeadOpenGraphArticeProps {
  * @param tag - Tag words associated with this article.
  * @returns All og:type=article meta tags for this document
  */
-const HeadOpenGraphArticle = (props: HeadOpenGraphArticeProps) => {
+function generateOpenGraphArticle(data: HeadOpenGraphArticeProps) {
     const {
         publishedTime,
         modifiedTime,
@@ -34,44 +34,44 @@ const HeadOpenGraphArticle = (props: HeadOpenGraphArticeProps) => {
         author,
         section,
         tag
-    } = props;
+    } = data;
 
     const articleTags = [];
 
     if(publishedTime) {
-        articleTags.push(<HeadOpenGraphArticlePublishedTime key={`head-opengraph-article-published_time`} content={publishedTime} />);
+        articleTags.push(generateOpenGraphArticlePublishedTime(publishedTime));
     }
     if(modifiedTime) {
-        articleTags.push(<HeadOpenGraphArticleModifiedTime key={`head-opengraph-article-modified_time`} content={modifiedTime} />);
+        articleTags.push(generateOpenGraphArticleModifiedTime(modifiedTime));
     }
     if(expirationTime) {
-        articleTags.push(<HeadOpenGraphArticleExpirationTime key={`head-opengraph-article-expiration_time`} content={expirationTime} />);
+        articleTags.push(generateOpenGraphArticleExpirationTime(expirationTime));
     }
     if(author) {
         if(typeof author === "object") {
             author.forEach((profile, i) => {
-                articleTags.push(<HeadOpenGraphArticleAuthor key={`head-opengraph-article-author-${i}`} content={profile} />);
+                articleTags.push(generateOpenGraphArticleAuthor(profile));
             });
         }
         else {
-            articleTags.push(<HeadOpenGraphArticleAuthor key={`head-opengraph-article-author`} content={author} />);
+            articleTags.push(generateOpenGraphArticleAuthor(author));
         }
     }
     if(section) {
-        articleTags.push(<HeadOpenGraphArticleSection key={`head-opengraph-article-section`} content={section} />);
+        articleTags.push(generateOpenGraphArticleSection(section));
     }
     if(tag) {
         if(typeof tag === "object") {
             tag.forEach((word, i) => {
-                articleTags.push(<HeadOpenGraphArticleTag key={`head-opengraph-article-tag-${i}`} content={word} />);
+                articleTags.push(generateOpenGraphArticleTag(word));
             });
         }
         else {
-            articleTags.push(<HeadOpenGraphArticleTag key={`head-opengraph-article-tag`} content={tag} />);
+            articleTags.push(generateOpenGraphArticleTag(tag));
         }
     }
 
     return articleTags;
 }
 
-export default HeadOpenGraphArticle;
+export default generateOpenGraphArticle;

@@ -1,19 +1,19 @@
 import React from "react";
-import HeadOpenGraphAudio from "./audio";
-import HeadOpenGraphDescription from "./description";
-import HeadOpenGraphImage from "./image";
-import HeadOpenGraphLocale from "./locale";
-import HeadOpenGraphLocaleAlternative from "./localeAlternative";
-import HeadOpenGraphSiteName from "./siteName";
-import HeadOpenGraphTitle from "./title";
-import HeadOpenGraphType, { HeadOpenGraphTypes } from "./type";
-import HeadOpenGraphUrl from "./url";
-import HeadOpenGraphVideo from "./video";
+import generateOpenGraphAudio from "./audio";
+import generateOpenGraphDescription from "./description";
+import generateOpenGraphImage from "./image";
+import generateOpenGraphLocale from "./locale";
+import generateOpenGraphLocaleAlternative from "./localeAlternative";
+import generateOpenGraphSiteName from "./siteName";
+import generateOpenGraphTitle from "./title";
+import generateOpenGraphType, { OpenGraphTypes } from "./type";
+import generateOpenGraphUrl from "./url";
+import generateOpenGraphVideo from "./video";
 
-interface HeadOpenGraphProps {
+interface OpenGraphData {
     title: string;
     description?: string;
-    type: HeadOpenGraphTypes;
+    type: OpenGraphTypes;
     image?: string | string[];
     video?: string;
     audio?: string;
@@ -38,7 +38,7 @@ interface HeadOpenGraphProps {
  * @param siteName - If your object is part of a larger web site, the name which should be displayed for the overall site. e.g., "IMDb".
  * @returns All the recommended open graph meta tags
  */
-const HeadOpenGraph = (props: HeadOpenGraphProps) => {
+const HeadOpenGraph = (props: OpenGraphData) => {
     const {
         title,
         description,
@@ -53,57 +53,57 @@ const HeadOpenGraph = (props: HeadOpenGraphProps) => {
     } = props;
 
     const openGraphTags = [
-        <HeadOpenGraphTitle content={title} key={`head-opengraph-title`} />
+        generateOpenGraphTitle(title)
     ];
 
     if (description) {
-        openGraphTags.push(<HeadOpenGraphDescription content={description} key={`head-opengraph-description`} />);
+        openGraphTags.push(generateOpenGraphDescription(description));
     }
 
     if (type) {
-        openGraphTags.push(<HeadOpenGraphType type={type} key={`head-opengraph-type`} />);
+        openGraphTags.push(generateOpenGraphType(type));
     }
 
     if (image) {
         if (typeof image === "object") {
             image.forEach((img, i) => {
-                openGraphTags.push(<HeadOpenGraphImage content={img} key={`head-opengraph-image-${i}`} />);
+                openGraphTags.push(generateOpenGraphImage(img));
             });
         }
         else {
-            openGraphTags.push(<HeadOpenGraphImage content={image} key={`head-opengraph-image`} />);
+            openGraphTags.push(generateOpenGraphImage(image));
         }
     }
 
     if (video) {
-        openGraphTags.push(<HeadOpenGraphVideo content={video} key={`head-opengraph-video`} />);
+        openGraphTags.push(generateOpenGraphVideo(video));
     }
 
     if (audio) {
-        openGraphTags.push(<HeadOpenGraphAudio content={audio} key={`head-opengraph-audio`} />);
+        openGraphTags.push(generateOpenGraphAudio(audio));
     }
 
     if (url) {
-        openGraphTags.push(<HeadOpenGraphUrl content={url} key={`head-opengraph-url`} />);
+        openGraphTags.push(generateOpenGraphUrl(url));
     }
 
     if (locale) {
-        openGraphTags.push(<HeadOpenGraphLocale content={locale} key={`head-opengraph-locale`} />);
+        openGraphTags.push(generateOpenGraphLocale(locale));
     }
 
     if (localeAlternative) {
         if (typeof localeAlternative === "object") {
             localeAlternative.forEach((loc, i) => {
-                openGraphTags.push(<HeadOpenGraphLocaleAlternative content={loc} key={`head-opengraph-locale-alternative-${i}`} />);
+                openGraphTags.push(generateOpenGraphLocaleAlternative(loc));
             });
         }
         else {
-            openGraphTags.push(<HeadOpenGraphLocaleAlternative content={localeAlternative} key={`head-opengraph-locale-alternative`} />);
+            openGraphTags.push(generateOpenGraphLocaleAlternative(localeAlternative));
         }
     }
 
     if (siteName) {
-        openGraphTags.push(<HeadOpenGraphSiteName content={siteName} key={`head-opengraph-site-name`} />)
+        openGraphTags.push(generateOpenGraphSiteName(siteName))
     }
 
     return openGraphTags;

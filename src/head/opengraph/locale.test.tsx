@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HeadOpenGraphLocale from "./locale";
+import generateOpenGraphLocale from "./locale";
 
 test('it should render a og:locale meta-tag', () => {
     let container = document.createElement("div");
-    ReactDOM.render(<HeadOpenGraphLocale content="de_AT" />, container);
+    ReactDOM.render(generateOpenGraphLocale("de_AT"), container);
 
     const metaTag = container.getElementsByTagName("meta");
     expect(metaTag).toBeDefined();

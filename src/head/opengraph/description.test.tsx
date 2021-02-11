@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HeadOpenGraphDescription from "./description";
+import generateOpenGraphDescription from "./description";
 
 test('it should render a og:image meta-tag', () => {
     let container = document.createElement("div");
-    ReactDOM.render(<HeadOpenGraphDescription content="Lorem Ipsum" />, container);
+    ReactDOM.render(generateOpenGraphDescription("Lorem Ipsum"), container);
 
     const metaTag = container.getElementsByTagName("meta");
     expect(metaTag).toBeDefined();

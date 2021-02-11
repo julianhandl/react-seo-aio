@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HeadOpenGraphArticleModifiedTime from "./modifiedTime";
+import generateOpenGraphArticleModifiedTime from "./modifiedTime";
 
 test('it should render a article:modified_time meta-tag', () => {
     const date = new Date("2020-10-27T10:00:00Z");
 
     let container = document.createElement("div");
-    ReactDOM.render(<HeadOpenGraphArticleModifiedTime content={date} />, container);
+    ReactDOM.render(generateOpenGraphArticleModifiedTime(date), container);
 
     const metaTag = container.getElementsByTagName("meta");
     expect(metaTag).toBeDefined();

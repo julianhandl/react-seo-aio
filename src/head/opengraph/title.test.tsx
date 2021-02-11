@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HeadOpenGraphTitle from "./title";
+import generateOpenGraphTitle from "./title";
 
 test('it should render a og:title meta-tag', () => {
     let container = document.createElement("div");
-    ReactDOM.render(<HeadOpenGraphTitle content="Test Title" />, container);
+    ReactDOM.render(generateOpenGraphTitle("Test Title"), container);
 
     const metaTag = container.getElementsByTagName("meta");
     expect(metaTag).toBeDefined();
