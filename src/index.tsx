@@ -17,7 +17,8 @@ import generateOpenGraphArticleModifiedTime from "./head/opengraph/article/modif
 import generateOpenGraphArticlePublishedTime from "./head/opengraph/article/publishedTime";
 import generateOpenGraphArticleSection from "./head/opengraph/article/section";
 import generateOpenGraphArticleTag from "./head/opengraph/article/tag";
-import React from "react";
+
+import generateStructuredDataArticle from "./head/structuredData/article";
 
 export {
   generateGroupBasic,
@@ -37,5 +38,6 @@ export {
   generateOpenGraphArticleModifiedTime,
   generateOpenGraphArticlePublishedTime,
   generateOpenGraphArticleSection,
-  generateOpenGraphArticleTag
+  generateOpenGraphArticleTag,
+  generateStructuredDataArticle,
 }
