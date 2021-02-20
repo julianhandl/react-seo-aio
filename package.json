@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.json",
-    "tsc": "tsc --project tsconfig.json",
+    "prepublish": "tsc --project tsconfig-publish.json",
+    "tsc": "tsc --project tsconfig-publish.json",
     "test": "react-scripts test",
     "build": "react-scripts build"
   },
